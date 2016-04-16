@@ -38,7 +38,7 @@ namespace AlgorithmsAssignment
             int input;//blank input variable for user input
             bool manager = true;
 
-            for (int i = 0; i < YearString.Length; i++)
+            for (int i = 0; i < YearString.Length; i++)//converts string to double
             {
                 Double.TryParse(YearString[i], out Year[i]);
             }
