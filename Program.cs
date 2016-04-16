@@ -12,18 +12,18 @@ namespace AlgorithmsAssignment
         static void Main(string[] args)
         {
 
-            string[] YearString = File.ReadAllLines("../Program/Files/Year.txt");
-            string[] WS1DailyTempMaxString = File.ReadAllLines("../Program/Files/WS1_TMax.txt");
-            string[] WS1DailyTempMinsString = File.ReadAllLines("../Program/Files/WS1_TMin.txt");
-            string[] WS1DaysOfFrostString = File.ReadAllLines("../Program/Files/WS1_AF.txt");
-            string[] WS1TotalRainString = File.ReadAllLines("../Program/Files/WS1_Rain.txt");
-            string[] WS1TotalSunString = File.ReadAllLines("../Program/Files/WS1_Sun.txt");
-            string[] WS2DailyTempMaxString = File.ReadAllLines("../Program/Files/WS2_TMax.txt");
-            string[] WS2DailyTempMinString = File.ReadAllLines("../Program/Files/WS2_TMin.txt");
-            string[] WS2DaysOfFrostString = File.ReadAllLines("../Program/Files/WS2_AF.txt");
-            string[] WS2TotalRainString = File.ReadAllLines("../Program/Files/WS2_Rain.txt");
-            string[] WS2TotalSunString = File.ReadAllLines("../Program/Files/WS2_Sun.txt");
-            string[] Month = File.ReadAllLines("../Program/Files/Month.txt");
+            string[] YearString = File.ReadAllLines("Files/Year.txt");
+            string[] WS1DailyTempMaxString = File.ReadAllLines("Files/WS1_TMax.txt");
+            string[] WS1DailyTempMinsString = File.ReadAllLines("Files/WS1_TMin.txt");
+            string[] WS1DaysOfFrostString = File.ReadAllLines("Files/WS1_AF.txt");
+            string[] WS1TotalRainString = File.ReadAllLines("Files/WS1_Rain.txt");
+            string[] WS1TotalSunString = File.ReadAllLines("Files/WS1_Sun.txt");
+            string[] WS2DailyTempMaxString = File.ReadAllLines("Files/WS2_TMax.txt");
+            string[] WS2DailyTempMinString = File.ReadAllLines("Files/WS2_TMin.txt");
+            string[] WS2DaysOfFrostString = File.ReadAllLines("Files/WS2_AF.txt");
+            string[] WS2TotalRainString = File.ReadAllLines("Files/WS2_Rain.txt");
+            string[] WS2TotalSunString = File.ReadAllLines("Files/WS2_Sun.txt");
+            string[] Month = File.ReadAllLines("Files/Month.txt");
             double[] Year = new double[YearString.Length];
             double[] WS1DailyTempMax = new double[WS1DailyTempMaxString.Length];
             double[] WS1DailyTempMin = new double[WS1DailyTempMinsString.Length];
@@ -87,10 +87,10 @@ namespace AlgorithmsAssignment
             Console.WriteLine("Welcome to my weather data analysis program.");//Inital welcome message. Only seen when program starts
             while (manager == true)//manager to go back if user enters invalid number
             {
-                Console.WriteLine("\nMain Menu:\n\n Please select which function of this program you wish to use.\n\n1 - Search for data by year\n2 - Search for data by month\n3 - Analyse data\n4 - Exit Program");
-                input = Convert.ToInt32(Console.ReadLine());//Main menu selection
                 try
                 {
+                    Console.WriteLine("\nMain Menu:\n\n Please select which function of this program you wish to use.\n\n1 - Search for data by year\n2 - Search for data by month\n3 - Analyse data\n4 - Exit Program");
+                    input = Convert.ToInt32(Console.ReadLine());//Main menu selection
                     if (input == 1)//search for data by year
                     { 
                         Console.WriteLine("\nPlease enter the year you wish to search for.");
@@ -127,7 +127,7 @@ namespace AlgorithmsAssignment
                     else if (input == 3)//Analyse the data
                     {
                 
-                        Console.WriteLine("Please select which station you wish to analys\n1 - Lerwick\n2 - Ross on Wye");//asking user to choose which array to use
+                        Console.WriteLine("Please select which station you wish to analyse\n1 - Lerwick\n2 - Ross on Wye");//asking user to choose which array to use
                         input = Convert.ToInt32(Console.ReadLine());//read line for this
                         if (input == 1) //if user enter 1 use var WS1
                         {
