@@ -182,6 +182,7 @@ namespace AlgorithmsAssignment
                 if (input == 1)
                 {
                     Quick_Sort(dbMonth, 0, dbMonth.Length - 1);
+                    month = doubleToMonth(dbMonth);
                     for (int i = 0; i <= month.Length - 1; i++)
                     {
                         Console.WriteLine(month[i]);
@@ -190,6 +191,7 @@ namespace AlgorithmsAssignment
                 else if (input == 2)
                 {
                     Quick_Sort(dbMonth, 0, dbMonth.Length - 1);
+                    month = doubleToMonth(dbMonth);
                     Array.Reverse(month);//invert the array to make it descending
                     for (int i = 0; i <= month.Length - 1; i++)
                     {
@@ -510,6 +512,41 @@ namespace AlgorithmsAssignment
                     default:
                         break;
                 }
+            }
+            return temp;
+        }
+        public static string[] doubleToMonth(double[] data)//converts the month array back from number values to month values as string
+        {
+            string[] temp = new string[data.Length];
+
+            for (int i = 0; i <= data.Length - 1; i++)
+            {
+                if (data[i] == 1)
+                    temp[i] = "January";
+                else if (data[i] == 2)
+                    temp[i] = "February";
+                else if (data[i] == 3)
+                    temp[i] = "March";
+                else if (data[i] == 4)
+                    temp[i] = "April";
+                else if (data[i] == 5)
+                    temp[i] = "May";
+                else if (data[i] == 6)
+                    temp[i] = "June";
+                else if (data[i] == 7)
+                    temp[i] = "July";
+                else if (data[i] == 8)
+                    temp[i] = "August";
+                else if (data[i] == 9)
+                    temp[i] = "September";
+                else if (data[i] == 10)
+                    temp[i] = "October";
+                else if (data[i] == 11)
+                    temp[i] = "November";
+                else if (data[i] == 12)
+                  temp[i] = "December";
+                else
+                    temp[i] = "Value not found";
             }
             return temp;
         }
