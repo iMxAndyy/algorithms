@@ -34,9 +34,9 @@ namespace AlgorithmsAssignment
             double[] WS2DaysOfFrost = stringToDouble(WS2DaysOfFrostString);
             double[] WS2TotalRain = stringToDouble(WS2TotalRainString);
             double[] WS2TotalSun = stringToDouble(WS2TotalSunString);
-            int input;//blank input variable for user input
+            int input = 0;//blank input variable for user input
             bool manager = true;
-
+                                       
             Console.WriteLine("Welcome to my weather data analysis program.");//Inital welcome message. Only seen when program starts
             while (manager == true)//manager to go back if user enters invalid number
             {
@@ -49,10 +49,37 @@ namespace AlgorithmsAssignment
                         Console.WriteLine("\nPlease enter the year you wish to search for.");
                         input = Convert.ToInt32(Console.ReadLine());
 
+                        //double[] Matched = Array.FindAll(Year, x == input);
+                        int[] Matched = Year.Select((b, i) => b == input ? i : -1).Where(i => i != -1).ToArray();
+
+                        for (int i = 0; i < Matched.Length; i++)
+                        {
+                            int result = Matched[i];
+                            if (i == 0)
+                            {
+                                Console.Write("\n\nYear   ");
+                                Console.Write("Month  ");
+                                Console.Write("TempMax   ");
+                                Console.Write("TempMin   ");
+                                Console.Write("Frost   ");
+                                Console.Write("Rain   ");
+                                Console.Write("Sun   ");
+                                Console.WriteLine("\n");
+                            }
+                            else
+                            {
+                                Console.Write("{0}   ", Year[result]);
+                                Console.Write("{0}   ", Month[result]);
+                                Console.Write("{0}   ", WS1DailyTempMax[result]);
+                                Console.Write("{0}   ", WS1DailyTempMin[result]);
+                                Console.Write("{0}   ", WS1DaysOfFrost[result]);
+                                Console.Write("{0}   ", WS1TotalRain[result]);
+                                Console.Write("{0}   ", WS1TotalSun[result]);
+                                Console.WriteLine();
+                            }
+                        }
 
 
-
-                        //search for data by year code goes here
 
 
 
@@ -136,7 +163,7 @@ namespace AlgorithmsAssignment
             if (left < j) Quick_Sort(data, left, j);
             if (i < right) Quick_Sort(data, i, right);
         }
-        public static void outputData(double[] year, string[] month, double[] DailyTempMax, double[] DailyTempMin, double[] DaysOfFrost, double[] TotalRain, double[] TotalSun, int input, bool manager)
+        public static void outputData(double[] year, string[] month, double[] DailyTempMax, double[] DailyTempMin, double[] DaysOfFrost, double[] TotalRain, double[] TotalSun, int input, bool manager)//sorts and displays results of user input
         {
             Console.WriteLine("Please select which data you are interested in analysing");
             Console.WriteLine("1 - Year\n2 - Month\n3 - Daily Temp Max\n4 - Daily Temp Min\n5 - Days of Air Frost\n6 - Total Rainfall\n7 - Total Sunshine");//asking user to choose which array to use
@@ -345,7 +372,7 @@ namespace AlgorithmsAssignment
                 Console.WriteLine("please enter a valid number (1 to 7)");
             }
         }
-        public static double[] stringToDouble(string[] data)
+        public static double[] stringToDouble(string[] data)//converts string array to double
         {
             double[] temp = new double[data.Length];
 
@@ -356,7 +383,7 @@ namespace AlgorithmsAssignment
 
             return temp;
         }
-        public static double[] monthToDouble(string[] data)
+        public static double[] monthToDouble(string[] data)//converts the month array from string to number values as double
         {
             double[] temp = new double[data.Length];
             
@@ -406,7 +433,7 @@ namespace AlgorithmsAssignment
             }
             return temp;
         }
-        public static string[] doubleToMonth(double[] data)
+        public static string[] doubleToMonth(double[] data)//converts the month array back from number values to month values as string
         {
             string[] temp = new string[data.Length];
 
