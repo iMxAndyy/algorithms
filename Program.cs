@@ -42,50 +42,28 @@ namespace AlgorithmsAssignment
             {
                 try
                 {
-                    Console.WriteLine("\nMain Menu:\n\n Please select which function of this program you wish to use.\n\n1 - Search for data by year\n2 - Search for data by month\n3 - Analyse data\n4 - Exit Program");
-                    input = Convert.ToInt32(Console.ReadLine());//Main menu selection
+                    Console.WriteLine("\nMain Menu:\n\n Please select which function of this program you wish to use.\n\n1 - Search for data by year\n2 - Search for data by month\n3 - Analyse data\n4 - Exit Program");//main menu
+                    input = Convert.ToInt32(Console.ReadLine());//store answer in input
                     if (input == 1)//search for data by year
-                    { 
-                        Console.WriteLine("\nPlease enter the year you wish to search for.");
-                        input = Convert.ToInt32(Console.ReadLine());
-
-                        //double[] Matched = Array.FindAll(Year, x == input);
-                        int[] Matched = Year.Select((b, i) => b == input ? i : -1).Where(i => i != -1).ToArray();
-
-                        for (int i = 0; i < Matched.Length; i++)
+                    {
+                        Console.WriteLine("Please select which station's data you wish to use\n1 - Lerwick\n2 - Ross on Wye");//asking user to choose which array to use
+                        input = Convert.ToInt32(Console.ReadLine());//store answer in input
+                        if (input == 1)//if user enter 1 use var WS1
                         {
-                            int result = Matched[i];
-                            if (i == 0)
-                            {
-                                Console.Write("\n\nYear   ");
-                                Console.Write("Month  ");
-                                Console.Write("TempMax   ");
-                                Console.Write("TempMin   ");
-                                Console.Write("Frost   ");
-                                Console.Write("Rain   ");
-                                Console.Write("Sun   ");
-                                Console.WriteLine("\n");
-                            }
-                            else
-                            {
-                                Console.Write("{0}   ", Year[result]);
-                                Console.Write("{0}   ", Month[result]);
-                                Console.Write("{0}   ", WS1DailyTempMax[result]);
-                                Console.Write("{0}   ", WS1DailyTempMin[result]);
-                                Console.Write("{0}   ", WS1DaysOfFrost[result]);
-                                Console.Write("{0}   ", WS1TotalRain[result]);
-                                Console.Write("{0}   ", WS1TotalSun[result]);
-                                Console.WriteLine();
-                            }
+                            searchYear(Year, Month, WS1DailyTempMax, WS1DailyTempMin, WS1DaysOfFrost, WS1TotalRain, WS1TotalSun, input);
+                            manager = false;
+                        }
+                        else if (input == 2)//if user enter 2 use var WS2
+                        {
+                            searchYear(Year, Month, WS1DailyTempMax, WS1DailyTempMin, WS1DaysOfFrost, WS1TotalRain, WS1TotalSun, input);
+                            manager = false;
+                        }
+                        else //if user enter anything else handle it
+                        {
+                            Console.WriteLine("please enter a valid number (1 or 2)");
                         }
 
-
-
-
-
-
-
-                        manager = false;
+                        
                     }
                     else if (input == 2)//search for data by month
                     {
@@ -107,14 +85,16 @@ namespace AlgorithmsAssignment
                     else if (input == 3)//Analyse the data
                     {
                         Console.WriteLine("Please select which station you wish to analyse\n1 - Lerwick\n2 - Ross on Wye");//asking user to choose which array to use
-                        input = Convert.ToInt32(Console.ReadLine());//read line for this
+                        input = Convert.ToInt32(Console.ReadLine());//store answer in input
                         if (input == 1) //if user enter 1 use var WS1
                         {
-                            outputData(Year, Month, WS1DailyTempMax, WS1DailyTempMin, WS1DaysOfFrost, WS1TotalRain, WS1TotalSun, input, manager);
+                            outputData(Year, Month, WS1DailyTempMax, WS1DailyTempMin, WS1DaysOfFrost, WS1TotalRain, WS1TotalSun, input);
+                            manager = false;
                         }
                         else if (input == 2) //if user enter 2 use var WS2
                         {
-                            outputData(Year, Month, WS2DailyTempMax, WS2DailyTempMin, WS2DaysOfFrost, WS2TotalRain, WS2TotalSun, input, manager);
+                            outputData(Year, Month, WS2DailyTempMax, WS2DailyTempMin, WS2DaysOfFrost, WS2TotalRain, WS2TotalSun, input);
+                            manager = false;
                         }
                         else //if user enter anything else handle it
                         { 
@@ -163,7 +143,7 @@ namespace AlgorithmsAssignment
             if (left < j) Quick_Sort(data, left, j);
             if (i < right) Quick_Sort(data, i, right);
         }
-        public static void outputData(double[] year, string[] month, double[] DailyTempMax, double[] DailyTempMin, double[] DaysOfFrost, double[] TotalRain, double[] TotalSun, int input, bool manager)//sorts and displays results of user input
+        public static void outputData(double[] year, string[] month, double[] DailyTempMax, double[] DailyTempMin, double[] DaysOfFrost, double[] TotalRain, double[] TotalSun, int input)//sorts and displays results of user input
         {
             Console.WriteLine("Please select which data you are interested in analysing");
             Console.WriteLine("1 - Year\n2 - Month\n3 - Daily Temp Max\n4 - Daily Temp Min\n5 - Days of Air Frost\n6 - Total Rainfall\n7 - Total Sunshine");//asking user to choose which array to use
@@ -179,7 +159,6 @@ namespace AlgorithmsAssignment
                     {
                         Console.WriteLine(year[i]);
                     }
-                    manager = false;//set false so while loop ends allowing the program to end
                 }
                 else if (input == 2)
                 {
@@ -189,7 +168,6 @@ namespace AlgorithmsAssignment
                     {
                         Console.WriteLine(year[i]);
                     }
-                    manager = false;//set false so while loop ends allowing the program to end
                 }
                 else //if user enter anything else handle it
                 {
@@ -209,7 +187,6 @@ namespace AlgorithmsAssignment
                     {
                         Console.WriteLine(month[i]);
                     }
-                    manager = false;//set false so while loop ends allowing the program to end
                 }
                 else if (input == 2)
                 {
@@ -220,7 +197,6 @@ namespace AlgorithmsAssignment
                     {
                         Console.WriteLine(month[i]);
                     }
-                    manager = false;//set false so while loop ends allowing the program to end
                 }
                 else //if user enter anything else handle it
                 {
@@ -238,7 +214,6 @@ namespace AlgorithmsAssignment
                     {
                         Console.WriteLine(DailyTempMax[i]);
                     }
-                    manager = false;//set false so while loop ends allowing the program to end
                 }
                 else if (input == 2)
                 {
@@ -248,7 +223,6 @@ namespace AlgorithmsAssignment
                     {
                         Console.WriteLine(DailyTempMax[i]);
                     }
-                    manager = false;//set false so while loop ends allowing the program to end
                 }
                 else //if user enter anything else handle it
                 {
@@ -266,7 +240,6 @@ namespace AlgorithmsAssignment
                     {
                         Console.WriteLine(DailyTempMin[i]);
                     }
-                    manager = false;//set false so while loop ends allowing the program to end
                 }
                 else if (input == 2)
                 {
@@ -276,7 +249,6 @@ namespace AlgorithmsAssignment
                     {
                         Console.WriteLine(DailyTempMin[i]);
                     }
-                    manager = false;//set false so while loop ends allowing the program to end
                 }
                 else //if user enter anything else handle it
                 {
@@ -294,7 +266,6 @@ namespace AlgorithmsAssignment
                     {
                         Console.WriteLine(DaysOfFrost[i]);
                     }
-                    manager = false;//set false so while loop ends allowing the program to end
                 }
                 else if (input == 2)
                 {
@@ -304,7 +275,6 @@ namespace AlgorithmsAssignment
                     {
                         Console.WriteLine(DaysOfFrost[i]);
                     }
-                    manager = false;//set false so while loop ends allowing the program to end
                 }
                 else //if user enter anything else handle it
                 {
@@ -322,7 +292,6 @@ namespace AlgorithmsAssignment
                     {
                         Console.WriteLine(TotalRain[i]);
                     }
-                    manager = false;//set false so while loop ends allowing the program to end
                 }
                 else if (input == 2)
                 {
@@ -332,7 +301,6 @@ namespace AlgorithmsAssignment
                     {
                         Console.WriteLine(TotalRain[i]);
                     }
-                    manager = false;//set false so while loop ends allowing the program to end
                 }
                 else //if user enter anything else handle it
                 {
@@ -350,7 +318,6 @@ namespace AlgorithmsAssignment
                     {
                         Console.WriteLine(TotalSun[i]);
                     }
-                    manager = false;//set false so while loop ends allowing the program to end
                 }
                 else if (input == 2)
                 {
@@ -360,7 +327,6 @@ namespace AlgorithmsAssignment
                     {
                         Console.WriteLine(TotalSun[i]);
                     }
-                    manager = false;//set false so while loop ends allowing the program to end
                 }
                 else //if user enter anything else handle it
                 {
@@ -370,6 +336,54 @@ namespace AlgorithmsAssignment
             else
             {
                 Console.WriteLine("please enter a valid number (1 to 7)");
+            }
+        }
+        public static void searchYear(double[] year, string[] month, double[] DailyTempMax, double[] DailyTempMin, double[] DaysOfFrost, double[] TotalRain, double[] TotalSun, int input)
+        {
+            Console.WriteLine("\nPlease enter the year you wish to search for.");//asking user what year to search for
+            input = Convert.ToInt32(Console.ReadLine());//store answer input
+
+            int counter = 0;
+
+            for (int i = 0; i<year.Length; i++)//run the search once to find the required size for the storage array
+
+            if (year[i] == input)
+            {
+                counter++;
+            }
+
+            int[] Matched = new int[counter]; //initialize the array with the required size
+            counter = 0;//reset the counter
+                        
+            for (int i = 0; i<year.Length; i++)//run the search again to populate the storage array
+
+            if (year[i] == input)
+            {
+                Matched[counter] = i;
+                counter++;
+            }
+
+            Console.Write("\n\nYear   ");
+            Console.Write("Month  ");
+            Console.Write("TempMax   ");
+            Console.Write("TempMin   ");
+            Console.Write("Frost   ");
+            Console.Write("Rain   ");
+            Console.Write("Sun   ");
+            Console.WriteLine("\n");
+
+            for (int i = 0; i<Matched.Length; i++)//loop through the storage array and output data from all arrays
+            {
+                int result = Matched[i];
+
+                Console.Write("{0}   ", year[result]);
+                Console.Write("{0}   ", month[result]);
+                Console.Write("{0}   ", DailyTempMax[result]);
+                Console.Write("{0}   ", DailyTempMin[result]);
+                Console.Write("{0}   ", DaysOfFrost[result]);
+                Console.Write("{0}   ", TotalRain[result]);
+                Console.Write("{0}   ", TotalSun[result]);
+                Console.WriteLine();
             }
         }
         public static double[] stringToDouble(string[] data)//converts string array to double
