@@ -62,25 +62,25 @@ namespace AlgorithmsAssignment
                         {
                             Console.WriteLine("please enter a valid number (1 or 2)");
                         }
-
-                        
                     }
                     else if (input == 2)//search for data by month
                     {
-                        Console.WriteLine("\nPlease enter the month value you wish to search for.");
-                        Console.WriteLine("\n\n1 - January\n2 - February\n3 - March\n4 - April\n5 - May\n6 - June\n7 - July\n8 - August\n9 - September\n10 - October\n11 - November\n12 - December");
-                        input = Convert.ToInt32(Console.ReadLine());
-
-
-
-                            //Search for data by month code goes here
-
-
-
-
-
-
-                        manager = false;
+                        Console.WriteLine("Please select which station's data you wish to use\n1 - Lerwick\n2 - Ross on Wye");//asking user to choose which array to use
+                        input = Convert.ToInt32(Console.ReadLine());//store answer in input
+                        if (input == 1)//if user enter 1 use var WS1
+                        {
+                            searchMonth(Year, Month, WS1DailyTempMax, WS1DailyTempMin, WS1DaysOfFrost, WS1TotalRain, WS1TotalSun, input);
+                            manager = false;
+                        }
+                        else if (input == 2)//if user enter 2 use var WS2
+                        {
+                            searchMonth(Year, Month, WS1DailyTempMax, WS1DailyTempMin, WS1DaysOfFrost, WS1TotalRain, WS1TotalSun, input);
+                            manager = false;
+                        }
+                        else //if user enter anything else handle it
+                        {
+                            Console.WriteLine("please enter a valid number (1 or 2)");
+                        }
                     }
                     else if (input == 3)//Analyse the data
                     {
@@ -182,7 +182,6 @@ namespace AlgorithmsAssignment
                 if (input == 1)
                 {
                     Quick_Sort(dbMonth, 0, dbMonth.Length - 1);
-                    month = doubleToMonth(dbMonth);
                     for (int i = 0; i <= month.Length - 1; i++)
                     {
                         Console.WriteLine(month[i]);
@@ -191,7 +190,6 @@ namespace AlgorithmsAssignment
                 else if (input == 2)
                 {
                     Quick_Sort(dbMonth, 0, dbMonth.Length - 1);
-                    month = doubleToMonth(dbMonth);
                     Array.Reverse(month);//invert the array to make it descending
                     for (int i = 0; i <= month.Length - 1; i++)
                     {
@@ -351,39 +349,107 @@ namespace AlgorithmsAssignment
             {
                 counter++;
             }
-
-            int[] Matched = new int[counter]; //initialize the array with the required size
-            counter = 0;//reset the counter
-                        
-            for (int i = 0; i<year.Length; i++)//run the search again to populate the storage array
-
-            if (year[i] == input)
+            if (counter == 0)
             {
-                Matched[counter] = i;
-                counter++;
+                Console.WriteLine("No Results Found");
             }
-
-            Console.Write("\n\nYear   ");
-            Console.Write("Month  ");
-            Console.Write("TempMax   ");
-            Console.Write("TempMin   ");
-            Console.Write("Frost   ");
-            Console.Write("Rain   ");
-            Console.Write("Sun   ");
-            Console.WriteLine("\n");
-
-            for (int i = 0; i<Matched.Length; i++)//loop through the storage array and output data from all arrays
+            else
             {
-                int result = Matched[i];
+                int[] Matched = new int[counter]; //initialize the array with the required size
+                counter = 0;//reset the counter
+                        
+                for (int i = 0; i<year.Length; i++)//run the search again to populate the storage array
 
-                Console.Write("{0}   ", year[result]);
-                Console.Write("{0}   ", month[result]);
-                Console.Write("{0}   ", DailyTempMax[result]);
-                Console.Write("{0}   ", DailyTempMin[result]);
-                Console.Write("{0}   ", DaysOfFrost[result]);
-                Console.Write("{0}   ", TotalRain[result]);
-                Console.Write("{0}   ", TotalSun[result]);
-                Console.WriteLine();
+                if (year[i] == input)
+                {
+                    Matched[counter] = i;
+                    counter++;
+                }
+
+                Console.Write("\n\nYear   ");
+                Console.Write("Month  ");
+                Console.Write("TempMax   ");
+                Console.Write("TempMin   ");
+                Console.Write("Frost   ");
+                Console.Write("Rain   ");
+                Console.Write("Sun   ");
+                Console.WriteLine("\n");
+
+                for (int i = 0; i<Matched.Length; i++)//loop through the storage array and output data from all arrays
+                {
+                    int result = Matched[i];
+
+                    Console.Write("{0}   ", year[result]);
+                    Console.Write("{0}   ", month[result]);
+                    Console.Write("{0}   ", DailyTempMax[result]);
+                    Console.Write("{0}   ", DailyTempMin[result]);
+                    Console.Write("{0}   ", DaysOfFrost[result]);
+                    Console.Write("{0}   ", TotalRain[result]);
+                    Console.Write("{0}   ", TotalSun[result]);
+                    Console.WriteLine();
+                }
+            }
+            
+        }
+        public static void searchMonth(double[] year, string[] month, double[] DailyTempMax, double[] DailyTempMin, double[] DaysOfFrost, double[] TotalRain, double[] TotalSun, int input)
+        {
+            Console.WriteLine("\nPlease enter the month value you wish to search for.");
+            Console.WriteLine("\n\n1 - January\n2 - February\n3 - March\n4 - April\n5 - May\n6 - June\n7 - July\n8 - August\n9 - September\n10 - October\n11 - November\n12 - December");
+            input = Convert.ToInt32(Console.ReadLine());
+            if (new[] { 1, 2, 3, 4, 5 ,6, 7, 8, 9 ,10 , 11, 12 }.Contains(input))
+            {
+                double[] dbMonth = monthToDouble(month);//convert month to double
+                int counter = 0;
+
+                for (int i = 0; i < month.Length; i++)//run the search once to find the required size for the storage array
+                if (dbMonth[i] == input)
+                {
+                    counter++;
+                }
+                if (counter == 0)
+                {
+                    Console.WriteLine("No Results Found");
+                }
+                else
+                {
+                    int[] Matched = new int[counter]; //initialize the array with the required size
+                    counter = 0;//reset the counter
+
+                    for (int i = 0; i < month.Length; i++)//run the search again to populate the storage array
+
+                        if (dbMonth[i] == input)
+                        {
+                            Matched[counter] = i;
+                            counter++;
+                        }
+            
+                    Console.Write("\n\nYear   ");
+                    Console.Write("Month  ");
+                    Console.Write("TempMax   ");
+                    Console.Write("TempMin   ");
+                    Console.Write("Frost   ");
+                    Console.Write("Rain   ");
+                    Console.Write("Sun   ");
+                    Console.WriteLine("\n");
+            
+                    for (int i = 0; i < Matched.Length; i++)//loop through the storage array and output data from all arrays
+                    {
+                        int result = Matched[i];
+
+                        Console.Write("{0}   ", year[result]);
+                        Console.Write("{0}   ", month[result]);
+                        Console.Write("{0}   ", DailyTempMax[result]);
+                        Console.Write("{0}   ", DailyTempMin[result]);
+                        Console.Write("{0}   ", DaysOfFrost[result]);
+                        Console.Write("{0}   ", TotalRain[result]);
+                        Console.Write("{0}   ", TotalSun[result]);
+                        Console.WriteLine();
+                    }
+                }
+            }
+            else
+            {
+                Console.WriteLine("please enter a valid number (Between 1 and 12)");
             }
         }
         public static double[] stringToDouble(string[] data)//converts string array to double
@@ -444,41 +510,6 @@ namespace AlgorithmsAssignment
                     default:
                         break;
                 }
-            }
-            return temp;
-        }
-        public static string[] doubleToMonth(double[] data)//converts the month array back from number values to month values as string
-        {
-            string[] temp = new string[data.Length];
-
-            for (int i = 0; i <= data.Length - 1; i++)
-            {
-                if (data[i] == 1)
-                    temp[i] = "January";
-                else if (data[i] == 2)
-                    temp[i] = "February";
-                else if (data[i] == 3)
-                    temp[i] = "March";
-                else if (data[i] == 4)
-                    temp[i] = "April";
-                else if (data[i] == 5)
-                    temp[i] = "May";
-                else if (data[i] == 6)
-                    temp[i] = "June";
-                else if (data[i] == 7)
-                    temp[i] = "July";
-                else if (data[i] == 8)
-                    temp[i] = "August";
-                else if (data[i] == 9)
-                    temp[i] = "September";
-                else if (data[i] == 10)
-                    temp[i] = "October";
-                else if (data[i] == 11)
-                    temp[i] = "November";
-                else if (data[i] == 12)
-                    temp[i] = "December";
-                else
-                    temp[i] = "Value not found";
             }
             return temp;
         }
