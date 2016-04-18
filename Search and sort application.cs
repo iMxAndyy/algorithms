@@ -51,12 +51,24 @@ namespace AlgorithmsAssignment
                         if (input == 1)//if user enter 1 use var WS1
                         {
                             searchYear(Year, Month, WS1DailyTempMax, WS1DailyTempMin, WS1DaysOfFrost, WS1TotalRain, WS1TotalSun, input);
-                            manager = false;
+                            Console.WriteLine("\nAre you finished using the program?\n\n1 - Yes. Close the program. \n2 - No. Go back to the Main Menu.");
+                            input = Convert.ToInt32(Console.ReadLine());//store answer in input
+
+                            if(input == 1)
+                            {
+                                manager = false;
+                            }
                         }
                         else if (input == 2)//if user enter 2 use var WS2
                         {
                             searchYear(Year, Month, WS1DailyTempMax, WS1DailyTempMin, WS1DaysOfFrost, WS1TotalRain, WS1TotalSun, input);
-                            manager = false;
+                            Console.WriteLine("\nAre you finished using the program?\n\n1 - Yes. Close the program. \n2 - No. Go back to the Main Menu.");
+                            input = Convert.ToInt32(Console.ReadLine());//store answer in input
+
+                            if (input == 1)
+                            {
+                                manager = false;
+                            }
                         }
                         else //if user enter anything else handle it
                         {
@@ -70,12 +82,24 @@ namespace AlgorithmsAssignment
                         if (input == 1)//if user enter 1 use var WS1
                         {
                             searchMonth(Year, Month, WS1DailyTempMax, WS1DailyTempMin, WS1DaysOfFrost, WS1TotalRain, WS1TotalSun, input);
-                            manager = false;
+                            Console.WriteLine("\nAre you finished using the program?\n\n1 - Yes. Close the program. \n2 - No. Go back to the Main Menu.");
+                            input = Convert.ToInt32(Console.ReadLine());//store answer in input
+
+                            if (input == 1)
+                            {
+                                manager = false;
+                            }
                         }
                         else if (input == 2)//if user enter 2 use var WS2
                         {
                             searchMonth(Year, Month, WS1DailyTempMax, WS1DailyTempMin, WS1DaysOfFrost, WS1TotalRain, WS1TotalSun, input);
-                            manager = false;
+                            Console.WriteLine("\nAre you finished using the program?\n\n1 - Yes. Close the program. \n2 - No. Go back to the Main Menu.");
+                            input = Convert.ToInt32(Console.ReadLine());//store answer in input
+
+                            if (input == 1)
+                            {
+                                manager = false;
+                            }
                         }
                         else //if user enter anything else handle it
                         {
@@ -89,12 +113,24 @@ namespace AlgorithmsAssignment
                         if (input == 1) //if user enter 1 use var WS1
                         {
                             outputData(Year, Month, WS1DailyTempMax, WS1DailyTempMin, WS1DaysOfFrost, WS1TotalRain, WS1TotalSun, input);
-                            manager = false;
+                            Console.WriteLine("\nAre you finished using the program?\n\n1 - Yes. Close the program. \n2 - No. Go back to the Main Menu.");
+                            input = Convert.ToInt32(Console.ReadLine());//store answer in input
+
+                            if (input == 1)
+                            {
+                                manager = false;
+                            }
                         }
                         else if (input == 2) //if user enter 2 use var WS2
                         {
                             outputData(Year, Month, WS2DailyTempMax, WS2DailyTempMin, WS2DaysOfFrost, WS2TotalRain, WS2TotalSun, input);
-                            manager = false;
+                            Console.WriteLine("\nAre you finished using the program?\n\n1 - Yes. Close the program. \n2 - No. Go back to the Main Menu.");
+                            input = Convert.ToInt32(Console.ReadLine());//store answer in input
+
+                            if (input == 1)
+                            {
+                                manager = false;
+                            }
                         }
                         else //if user enter anything else handle it
                         { 
