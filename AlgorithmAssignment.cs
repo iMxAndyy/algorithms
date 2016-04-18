@@ -72,7 +72,11 @@ namespace AlgorithmsAssignment
                         }
                         else //if user enter anything else handle it
                         {
-                            Console.WriteLine("please enter a valid number (1 or 2)");
+                            Console.WriteLine("\n|----------------------------------------------------|");
+                            Console.WriteLine("|                                                    |");
+                            Console.WriteLine("|  An invalid number was entered. Please Try Again   |");
+                            Console.WriteLine("|                                                    |");
+                            Console.WriteLine("|----------------------------------------------------|");
                         }
                     }
                     else if (input == 2)//search for data by month
@@ -103,7 +107,11 @@ namespace AlgorithmsAssignment
                         }
                         else //if user enter anything else handle it
                         {
-                            Console.WriteLine("please enter a valid number (1 or 2)");
+                            Console.WriteLine("\n|----------------------------------------------------|");
+                            Console.WriteLine("|                                                    |");
+                            Console.WriteLine("|  An invalid number was entered. Please Try Again   |");
+                            Console.WriteLine("|                                                    |");
+                            Console.WriteLine("|----------------------------------------------------|");
                         }
                     }
                     else if (input == 3)//Analyse the data
@@ -133,8 +141,12 @@ namespace AlgorithmsAssignment
                             }
                         }
                         else //if user enter anything else handle it
-                        { 
-                            Console.WriteLine("please enter a valid number (1 or 2)");
+                        {
+                            Console.WriteLine("\n|----------------------------------------------------|");
+                            Console.WriteLine("|                                                    |");
+                            Console.WriteLine("|  An invalid number was entered. Please Try Again   |");
+                            Console.WriteLine("|                                                    |");
+                            Console.WriteLine("|----------------------------------------------------|");
                         }
                     }
                     else if (input == 4)
@@ -143,16 +155,28 @@ namespace AlgorithmsAssignment
                     }
                     else
                     {
-                        Console.WriteLine("please enter a valid number (1 to 4)");
+                        Console.WriteLine("\n|----------------------------------------------------|");
+                        Console.WriteLine("|                                                    |");
+                        Console.WriteLine("|  An invalid number was entered. Please Try Again   |");
+                        Console.WriteLine("|                                                    |");
+                        Console.WriteLine("|----------------------------------------------------|");
                     }
                 }
                 catch (FormatException e)//Catch Format Exeptions
                 {
-                    Console.WriteLine("\n\n\n\n\nERROR: {0} Please try again.", e.Message);
+                    Console.WriteLine("\n|---------------------------------------------------------------------------------------|");
+                    Console.WriteLine("|                                                                                       |");
+                    Console.WriteLine("  ERROR: {0} Please try again", e.Message);
+                    Console.WriteLine("|                                                                                       |");
+                    Console.WriteLine("|---------------------------------------------------------------------------------------|");
                 }
                 catch (OverflowException e)//Catch overflow exeption
                 {
-                    Console.WriteLine("\n\n\n\n\nERROR: {0} Please try again", e.Message);
+                    Console.WriteLine("\n|---------------------------------------------------------------------------------------|");
+                    Console.WriteLine("|                                                                                       |");
+                    Console.WriteLine("  ERROR: {0} Please try again", e.Message);
+                    Console.WriteLine("|                                                                                       |");
+                    Console.WriteLine("|---------------------------------------------------------------------------------------|");
                 }
            }
         }
@@ -207,7 +231,11 @@ namespace AlgorithmsAssignment
                 }
                 else //if user enter anything else handle it
                 {
-                    Console.WriteLine("please enter a valid number (1 or 2)");
+                    Console.WriteLine("\n|----------------------------------------------------|");
+                    Console.WriteLine("|                                                    |");
+                    Console.WriteLine("|  An invalid number was entered. Please Try Again   |");
+                    Console.WriteLine("|                                                    |");
+                    Console.WriteLine("|----------------------------------------------------|");
                 }
             }
             else if (input == 2)//month
@@ -236,7 +264,11 @@ namespace AlgorithmsAssignment
                 }
                 else //if user enter anything else handle it
                 {
-                    Console.WriteLine("please enter a valid number (1 or 2)");
+                    Console.WriteLine("\n|----------------------------------------------------|");
+                    Console.WriteLine("|                                                    |");
+                    Console.WriteLine("|  An invalid number was entered. Please Try Again   |");
+                    Console.WriteLine("|                                                    |");
+                    Console.WriteLine("|----------------------------------------------------|");
                 }
             }
             else if (input == 3)//DailyTempMax
@@ -262,7 +294,11 @@ namespace AlgorithmsAssignment
                 }
                 else //if user enter anything else handle it
                 {
-                    Console.WriteLine("please enter a valid number (1 or 2)");
+                    Console.WriteLine("\n|----------------------------------------------------|");
+                    Console.WriteLine("|                                                    |");
+                    Console.WriteLine("|  An invalid number was entered. Please Try Again   |");
+                    Console.WriteLine("|                                                    |");
+                    Console.WriteLine("|----------------------------------------------------|");
                 }
             }
             else if (input == 4)//DailyTempMin
@@ -288,7 +324,11 @@ namespace AlgorithmsAssignment
                 }
                 else //if user enter anything else handle it
                 {
-                    Console.WriteLine("please enter a valid number (1 or 2)");
+                    Console.WriteLine("\n|----------------------------------------------------|");
+                    Console.WriteLine("|                                                    |");
+                    Console.WriteLine("|  An invalid number was entered. Please Try Again   |");
+                    Console.WriteLine("|                                                    |");
+                    Console.WriteLine("|----------------------------------------------------|");
                 }
             }
             else if (input == 5)//DaysOfFrost
@@ -314,7 +354,11 @@ namespace AlgorithmsAssignment
                 }
                 else //if user enter anything else handle it
                 {
-                    Console.WriteLine("please enter a valid number (1 or 2)");
+                    Console.WriteLine("\n|----------------------------------------------------|");
+                    Console.WriteLine("|                                                    |");
+                    Console.WriteLine("|  An invalid number was entered. Please Try Again   |");
+                    Console.WriteLine("|                                                    |");
+                    Console.WriteLine("|----------------------------------------------------|");
                 }
             }
             else if (input == 6)//TotalRain
@@ -340,7 +384,11 @@ namespace AlgorithmsAssignment
                 }
                 else //if user enter anything else handle it
                 {
-                    Console.WriteLine("please enter a valid number (1 or 2)");
+                    Console.WriteLine("\n|----------------------------------------------------|");
+                    Console.WriteLine("|                                                    |");
+                    Console.WriteLine("|  An invalid number was entered. Please Try Again   |");
+                    Console.WriteLine("|                                                    |");
+                    Console.WriteLine("|----------------------------------------------------|");
                 }
             }
             else if (input == 7)//TotalSun
@@ -366,12 +414,20 @@ namespace AlgorithmsAssignment
                 }
                 else //if user enter anything else handle it
                 {
-                    Console.WriteLine("please enter a valid number (1 or 2)");
+                    Console.WriteLine("\n|----------------------------------------------------|");
+                    Console.WriteLine("|                                                    |");
+                    Console.WriteLine("|  An invalid number was entered. Please Try Again   |");
+                    Console.WriteLine("|                                                    |");
+                    Console.WriteLine("|----------------------------------------------------|");
                 }
             }
             else
             {
-                Console.WriteLine("please enter a valid number (1 to 7)");
+                Console.WriteLine("\n|----------------------------------------------------|");
+                Console.WriteLine("|                                                    |");
+                Console.WriteLine("|  An invalid number was entered. Please Try Again   |");
+                Console.WriteLine("|                                                    |");
+                Console.WriteLine("|----------------------------------------------------|");
             }
         }
         public static void searchYear(double[] year, string[] month, double[] DailyTempMax, double[] DailyTempMin, double[] DaysOfFrost, double[] TotalRain, double[] TotalSun, int input)
@@ -487,7 +543,11 @@ namespace AlgorithmsAssignment
             }
             else
             {
-                Console.WriteLine("please enter a valid number (Between 1 and 12)");
+                Console.WriteLine("\n|----------------------------------------------------|");
+                Console.WriteLine("|                                                    |");
+                Console.WriteLine("|  An invalid number was entered. Please Try Again   |");
+                Console.WriteLine("|                                                    |");
+                Console.WriteLine("|----------------------------------------------------|");
             }
         }
         public static double[] stringToDouble(string[] data)//converts string array to double
